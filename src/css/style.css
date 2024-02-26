@@ -27,6 +27,9 @@ body {
     box-sizing: border-box;
 
     background-color: var(--grey);
+
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -35,7 +38,6 @@ header {
     background-color: var(--black);
     color: var(--white);
     padding: 10px;
-    position: fixed;
 
     display: flex;
     justify-content: center;
@@ -58,3 +60,33 @@ header > h1 > span {
     color: var(--orange);
 }
 /* HEADER */
+
+
+/* ADD BUTTON */
+.add-button-container {
+    padding: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.add-button {
+    background-color: var(--orange);
+    color: var(--black);
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 25px;
+
+    transition-duration: 0.2s;
+}
+
+.add-button:hover {
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 0 10px 4px var(--white);
+}
+/* ADD BUTTON */
