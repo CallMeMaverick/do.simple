@@ -1,28 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 .montserrat {
-                 font-family: "Montserrat", sans-serif;
-                 font-optical-sizing: auto;
-                 font-weight: normal;
-                 font-style: normal;
-             }
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --black: #222831;
+    --grey: #222831;
+    --orange: #f96d00;
+    --white: #f2f2f2;
+
+    --general-font: "Montserrat";
+}
 
 * {
-    font-family: "Montserrat", serif;
+    font-family: var(--general-font), serif;
 }
+
 
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    background-color: var(--grey);
 }
 
 
 /* HEADER */
 header {
-    background-color: #222831;
-    color: #f2f2f2;
+    background-color: var(--black);
+    color: var(--white);
     padding: 10px;
+    position: fixed;
 
     display: flex;
     justify-content: center;
@@ -30,6 +43,7 @@ header {
     flex-direction: column;
 
     line-height: 0.1vh;
+    box-shadow: 2px 2px 2px 2px var(--orange);
 }
 
 header > h1 {
@@ -41,6 +55,6 @@ header > p {
 }
 
 header > h1 > span {
-    color: #f96d00;
+    color: var(--orange);
 }
 /* HEADER */
