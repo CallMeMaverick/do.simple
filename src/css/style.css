@@ -16,3 +16,31 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+
+
+/* HEADER */
+header {
+    background-color: #222831;
+    color: #f2f2f2;
+    padding: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    line-height: 0.1vh;
+}
+
+header > h1 {
+    font-size: 50px;
+}
+
+header > p {
+    font-size: 30px;
+}
+
+header > h1 > span {
+    color: #f96d00;
+}
+/* HEADER */
