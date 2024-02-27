@@ -10,7 +10,11 @@ export default function createModal() {
 
     const modalSpan = document.createElement("span");
     modalContent.classList.add("close");
-    modalSpan.textContent = "&times";
+    modalSpan.innerHTML = "&times;";
+
+    modalSpan.onclick = function() { // Add a click event listener to the close button
+        modal.style.display = "none";
+    };
 
     modalContent.appendChild(modalSpan);
 
