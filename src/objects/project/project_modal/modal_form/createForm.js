@@ -1,4 +1,5 @@
 import project__init__ from "../../project_init/getObject"
+import addProject from "../../../../utils/addProject/addProject";
 
 function createInputWithLabel(type, name, id, labelText, value = '') {
     const wrapper = document.createElement("div");
@@ -78,14 +79,15 @@ export default function createForm() {
     modalForm.addEventListener('submit', function(event) {
         event.preventDefault();
 
-        const title = document.getElementById("title").value;
-        const description = document.getElementById("description").value;
+        const thisForm = event.currentTarget;
+
+        const title = thisForm.querySelector("#title").value;
+        const description = thisForm.querySelector("#description").value;
         const dueDate = document.getElementById("dueDate").value;
         const priority = document.getElementById("priority").value;
 
-        console.log(title, description, dueDate, priority);
-
-        return new project__init__(title, description, dueDate, priority);
+        const projectObject = new project__init__(title, description, dueDate, priority);
+        document.body.appendChild(addProject(projectObject));
     })
 
     return modalForm;
