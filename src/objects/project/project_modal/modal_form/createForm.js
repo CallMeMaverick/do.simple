@@ -87,6 +87,9 @@ export default function createForm() {
         const priority = document.getElementById("priority").value;
         const projectObject = new project__init__(title, description, dueDate, priority);
         document.body.appendChild(addProject(projectObject));
+
+        let modal = document.querySelector(".modal");
+        modal.style.display = "none";
     })
 
     return modalForm;
