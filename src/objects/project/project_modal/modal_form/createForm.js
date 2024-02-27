@@ -75,7 +75,7 @@ export default function createForm() {
 
     modalForm.appendChild(submitButtonContainer);
 
-    submitButton.addEventListener('submit', function(event) {
+    modalForm.addEventListener('submit', function(event) {
         event.preventDefault();
 
         const title = document.getElementById("title").value;
@@ -85,7 +85,7 @@ export default function createForm() {
 
         console.log(title, description, dueDate, priority);
 
-        const object = new project__init__(title, description, dueDate, priority);
+        return new project__init__(title, description, dueDate, priority);
     })
 
     return modalForm;
