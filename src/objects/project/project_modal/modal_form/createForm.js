@@ -67,7 +67,12 @@ export default function createForm() {
     const submitButton = document.createElement("button");
     submitButton.setAttribute("type", "submit");
     submitButton.textContent = "Submit";
-    modalForm.appendChild(submitButton);
+
+    const submitButtonContainer = document.createElement("div");
+    submitButtonContainer.classList.add("submit-button-container");
+    submitButtonContainer.appendChild(submitButton);
+
+    modalForm.appendChild(submitButtonContainer);
 
     modalForm.addEventListener('submit', function(event) {
         event.preventDefault();
