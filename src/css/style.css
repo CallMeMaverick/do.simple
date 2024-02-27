@@ -179,5 +179,15 @@ header > h1 > span {
     border-radius: 20px;
     border: none;
 }
-
 /* MODAL */
+
+
+/* PROJECT */
+
+.project-container {
+    width: 500px;
+    height: 500px;
+    color: var(--white);
+}
+
+/* PROJECT */
