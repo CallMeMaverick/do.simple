@@ -212,7 +212,11 @@ header > h1 > span {
 
 .project-container > h3 {
     text-align: center;
+}
 
+.this-span {
+    color: var(--orange);
+    font-style: italic;
 }
 
 

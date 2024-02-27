@@ -15,13 +15,13 @@ export default function addProject(projectObject) {
     console.log(projectObject.title);
 
     const projectDescription = document.createElement("p");
-    projectDescription.textContent = projectObject.description;
+    projectDescription.innerHTML = `<span class="this-span">Description:</span> ${projectObject.description}`;
 
     const projectDueDate = document.createElement("p");
-    projectDueDate.textContent = `Due Date: ${projectObject.dueDate.toLocaleDateString()}`;
+    projectDueDate.innerHTML = `<span class="this-span">Due Date:</span> ${projectObject.dueDate.toLocaleDateString()}`;
 
     const projectPriority = document.createElement("p");
-    projectPriority.textContent = `Priority: ${projectObject.priority}`;
+    projectPriority.innerHTML = `<span class="this-span">Priority:</span> ${projectObject.priority}`;
 
     // Append project details to the project container
     projectContainer.appendChild(projectTitle);
