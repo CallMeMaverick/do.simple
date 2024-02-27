@@ -83,9 +83,8 @@ export default function createForm() {
 
         const title = thisForm.querySelector("#title").value;
         const description = thisForm.querySelector("#description").value;
-        const dueDate = document.getElementById("dueDate").value;
+        const dueDate = thisForm.querySelector("#dueDate").value;
         const priority = document.getElementById("priority").value;
-
         const projectObject = new project__init__(title, description, dueDate, priority);
         document.body.appendChild(addProject(projectObject));
     })
