@@ -183,11 +183,37 @@ header > h1 > span {
 
 
 /* PROJECT */
+.content {
+    display: flex;
+    justify-content: space-evenly;
+    justify-items: start;
+    flex-wrap: wrap;
+    padding: 30px;
+}
+
 
 .project-container {
-    width: 500px;
-    height: 500px;
+    width: 200px;
+    height: 200px;
+
     color: var(--white);
+    font-weight: bold;
+
+    padding: 15px;
+
+    border: 2px solid var(--orange);
+    border-radius: 20px;
+
+    background-color: var(--black);
+
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
+
+.project-container > h3 {
+    text-align: center;
+
+}
+
 
 /* PROJECT */
