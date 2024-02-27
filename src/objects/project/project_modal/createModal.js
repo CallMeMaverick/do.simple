@@ -1,4 +1,5 @@
 import createForm from "./modal_form/createForm";
+import hideModal from "../hideModal/hideModal";
 
 export default function createModal() {
     let modal = document.querySelector(".modal");
@@ -21,7 +22,7 @@ export default function createModal() {
         modal.appendChild(modalContent);
 
         modalSpan.addEventListener("click", () => {
-            modal.style.display = "none";
+            hideModal();
         });
 
         document.body.appendChild(modal);

@@ -1,5 +1,6 @@
 import project__init__ from "../../project_init/getObject"
 import addProject from "../../../../utils/addProject/addProject";
+import hideModal from "../../hideModal/hideModal";
 
 function createInputWithLabel(type, name, id, labelText, value = '') {
     const wrapper = document.createElement("div");
@@ -88,8 +89,7 @@ export default function createForm() {
         const projectObject = new project__init__(title, description, dueDate, priority);
         document.body.appendChild(addProject(projectObject));
 
-        let modal = document.querySelector(".modal");
-        modal.style.display = "none";
+        hideModal();
     })
 
     return modalForm;
