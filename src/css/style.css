@@ -139,6 +139,7 @@ header > h1 > span {
     align-items: flex-start;
     width: 100%;
     margin-bottom: 10px;
+    margin-top: 20px;
 }
 
 .input-wrapper label {

@@ -18,6 +18,7 @@ function createInputWithLabel(type, name, id, labelText, value = '') {
 
     input.setAttribute("name", name);
     input.setAttribute("id", id);
+    input.setAttribute("required", "");
     if (value) input.value = value;
 
     wrapper.appendChild(label);
@@ -74,7 +75,7 @@ export default function createForm() {
 
     modalForm.appendChild(submitButtonContainer);
 
-    modalForm.addEventListener('submit', function(event) {
+    submitButton.addEventListener('submit', function(event) {
         event.preventDefault();
 
         const title = document.getElementById("title").value;
@@ -82,7 +83,9 @@ export default function createForm() {
         const dueDate = document.getElementById("dueDate").value;
         const priority = document.getElementById("priority").value;
 
-        const object = project__init__(title, description, dueDate, priority);
+        console.log(title, description, dueDate, priority);
+
+        const object = new project__init__(title, description, dueDate, priority);
     })
 
     return modalForm;
