@@ -108,6 +108,8 @@ header > h1 > span {
 }
 
 .modal-content {
+    position: relative;
+    
     background-color: var(--black);
     color: var(--orange);
     font-weight: bold;
@@ -121,19 +123,60 @@ header > h1 > span {
     border-radius: 10px;
 }
 
-.input-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-    gap: 2rem;
+.close > span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 4;
+    font-size: 24px;
 }
 
-
+.input-wrapper, .submit-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 10px;
+}
 
 .input-wrapper label {
-    width: 100px;
+    margin-bottom: 0.5rem;
 }
 
+.input-wrapper input,
+.input-wrapper textarea,
+.input-wrapper select,
+.select-wrapper select
+{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-wrapper button {
+    align-self: center;
+}
+
+.submit-button-container {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+
+    margin-top: 20px;
+}
+
+.submit-button-container > button {
+    width: 100%;
+    height: 30px;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    background-color: var(--orange);
+    color: var(--grey);
+    border-radius: 20px;
+    border: none;
+}
 
 /* MODAL */
