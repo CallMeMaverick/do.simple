@@ -201,7 +201,7 @@ header > h1 > span {
 
     padding: 15px;
 
-    border: 2px solid var(--orange);
+    /*border: 2px solid var(--orange);*/
     border-radius: 20px;
 
     background-color: var(--black);

@@ -1,3 +1,5 @@
+import definePriority from "../../objects/project/setPriority/setPriority";
+
 export default function addProject(projectObject) {
     // Select the content div or create a new one if it doesn't exist
     let contentDiv = document.querySelector(".content");
@@ -7,7 +9,7 @@ export default function addProject(projectObject) {
         document.body.appendChild(contentDiv);
     }
 
-    const projectContainer = document.createElement("div");
+    let projectContainer = document.createElement("div");
     projectContainer.classList.add("project-container");
 
     const projectTitle = document.createElement("h3");
@@ -22,6 +24,8 @@ export default function addProject(projectObject) {
 
     const projectPriority = document.createElement("p");
     projectPriority.innerHTML = `<span class="this-span">Priority:</span> ${projectObject.priority}`;
+
+    projectContainer = definePriority(projectContainer, projectObject.priority);
 
     // Append project details to the project container
     projectContainer.appendChild(projectTitle);
