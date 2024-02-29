@@ -1,6 +1,7 @@
 import project__init__ from "../../project_init/getObject"
 import addProject from "../../../../utils/addProject/addProject";
 import hideModal from "../../hideModal/hideModal";
+import clearInput from "../../clearInputs/clearInputs";
 
 function createInputWithLabel(type, name, id, labelText, value = '') {
     const wrapper = document.createElement("div");
@@ -89,6 +90,7 @@ export default function createForm() {
         const projectObject = new project__init__(title, description, dueDate, priority);
         document.body.appendChild(addProject(projectObject));
 
+        clearInput(thisForm.querySelector("#title"), thisForm.querySelector("#description"), thisForm.querySelector("#dueDate"), document.getElementById("priority"));
         hideModal();
     })
 
