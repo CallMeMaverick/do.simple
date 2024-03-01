@@ -1,4 +1,4 @@
-import  {parse } from "date-fns"
+import { parse } from "date-fns"
 
 export default function project__init__(title, description, dueDateString, priority) {
     this.title = title;
