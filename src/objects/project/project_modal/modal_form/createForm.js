@@ -1,4 +1,7 @@
 import project__init__ from "../../project_init/getObject"
+import addProject from "../../../../utils/addProject/addProject";
+import hideModal from "../../hideModal/hideModal";
+import clearInput from "../../clearInputs/clearInputs";
 
 function createInputWithLabel(type, name, id, labelText, value = '') {
     const wrapper = document.createElement("div");
@@ -75,17 +78,20 @@ export default function createForm() {
 
     modalForm.appendChild(submitButtonContainer);
 
-    submitButton.addEventListener('submit', function(event) {
+    modalForm.addEventListener('submit', function(event) {
         event.preventDefault();
 
-        const title = document.getElementById("title").value;
-        const description = document.getElementById("description").value;
-        const dueDate = document.getElementById("dueDate").value;
+        const thisForm = event.currentTarget;
+
+        const title = thisForm.querySelector("#title").value;
+        const description = thisForm.querySelector("#description").value;
+        const dueDate = thisForm.querySelector("#dueDate").value;
         const priority = document.getElementById("priority").value;
+        const projectObject = new project__init__(title, description, dueDate, priority);
+        document.body.appendChild(addProject(projectObject));
 
-        console.log(title, description, dueDate, priority);
-
-        const object = new project__init__(title, description, dueDate, priority);
+        clearInput(thisForm.querySelector("#title"), thisForm.querySelector("#description"), thisForm.querySelector("#dueDate"), document.getElementById("priority"));
+        hideModal();
     })
 
     return modalForm;
