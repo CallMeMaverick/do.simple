@@ -90,3 +90,134 @@ header > h1 > span {
     box-shadow: 0 0 10px 4px var(--white);
 }
 /* ADD BUTTON */
+
+
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    position: relative;
+    
+    background-color: var(--black);
+    color: var(--orange);
+    font-weight: bold;
+
+    margin: 10% auto;
+    padding: 20px;
+    width: 30%;
+    z-index: 3;
+
+    border: 3px solid var(--orange);
+    border-radius: 10px;
+}
+
+.close > span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 4;
+    font-size: 24px;
+}
+
+.input-wrapper, .submit-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.input-wrapper label {
+    margin-bottom: 0.5rem;
+}
+
+.input-wrapper input,
+.input-wrapper textarea,
+.input-wrapper select,
+.select-wrapper select
+{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-wrapper button {
+    align-self: center;
+}
+
+.submit-button-container {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+
+    margin-top: 20px;
+}
+
+.submit-button-container > button {
+    width: 100%;
+    height: 30px;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    background-color: var(--orange);
+    color: var(--grey);
+    border-radius: 20px;
+    border: none;
+}
+/* MODAL */
+
+
+/* PROJECT */
+.content {
+    display: flex;
+    justify-content: space-evenly;
+    justify-items: start;
+    flex-wrap: wrap;
+    padding: 30px;
+}
+
+
+.project-container {
+    width: 200px;
+    height: 200px;
+
+    color: var(--white);
+    font-weight: bold;
+
+    padding: 15px;
+
+    /*border: 2px solid var(--orange);*/
+    border-radius: 20px;
+
+    background-color: var(--black);
+
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.project-container > h3 {
+    text-align: center;
+}
+
+.this-span {
+    color: var(--orange);
+    font-style: italic;
+}
+
+
+/* PROJECT */
