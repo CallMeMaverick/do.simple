@@ -9,14 +9,32 @@ export default function taskWindowLoader(project) {
     const projectDescription = project.querySelector(".desc").nextSibling.textContent.trim();
 
     const header = document.createElement("header");
+    header.classList.add("while-task");
+
+    const returnButtonContainer = document.createElement("div");
+    returnButtonContainer.classList.add("return-button-container");
+
+    const returnButton = document.createElement("button");
+    returnButton.classList.add("return-button");
+    returnButton.textContent = "←";
+
+    returnButtonContainer.appendChild(returnButton);
+
+
+    const textContainerTask = document.createElement("div");
+    textContainerTask.classList.add("text-container");
+
     const headerHeading = document.createElement("h1");
     headerHeading.textContent = projectTitle;
 
     const headerPara = document.createElement("p");
     headerPara.textContent = projectDescription;
 
-    header.appendChild(headerHeading);
-    header.appendChild(headerPara);
+    textContainerTask.appendChild(headerHeading);
+    textContainerTask.appendChild(headerPara);
+
+    header.appendChild(returnButtonContainer);
+    header.appendChild(textContainerTask);
 
     document.body.appendChild(header);
 
