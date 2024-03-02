@@ -258,4 +258,21 @@ th {
     border: 2px solid var(--orange);
 }
 
+td {
+    color: var(--white);
+    font-size: 20px;
+    text-align: center;
+    border: 2px solid var(--orange);
+}
+
+
+.remove-task {
+    width: 100%;
+    background-color: red;
+    color: var(--white);
+    font-size: 30px;
+    height: 100%;
+    border-radius: 0;
+    border: none;
+}
 /* TASKS IN PROJECT */

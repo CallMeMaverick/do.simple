@@ -2,7 +2,7 @@ import project__init__ from "../../project_init/getObject"
 import addProject from "../../../../utils/addProject/addProject";
 import hideModal from "../../hideModal/hideModal";
 import clearInput from "../../clearInputs/clearInputs";
-import triggerTask from "../../../task/processTask";
+import processProject from "../../processProject/processProject";
 
 function createInputWithLabel(type, name, id, labelText, value = '') {
     const wrapper = document.createElement("div");
@@ -87,15 +87,17 @@ export default function createForm() {
         const title = thisForm.querySelector("#title").value;
         const description = thisForm.querySelector("#description").value;
         const dueDate = thisForm.querySelector("#dueDate").value;
-        const priority = document.getElementById("priority").value;
+        const priority = thisForm.querySelector("#priority").value;
+
         const projectObject = new project__init__(title, description, dueDate, priority);
         document.body.appendChild(addProject(projectObject));
 
         clearInput(thisForm.querySelector("#title"), thisForm.querySelector("#description"), thisForm.querySelector("#dueDate"), document.getElementById("priority"));
         hideModal();
 
-        triggerTask();
+        processProject();
     })
+
 
     return modalForm;
 }
