@@ -74,22 +74,6 @@ header > h1 > span {
 
 }
 
-/*.add-button {*/
-/*    background-color: var(--orange);*/
-/*    color: var(--black);*/
-
-/*    border: none;*/
-/*    border-radius: 10px;*/
-
-/*    font-size: 25px;*/
-
-/*    transition-duration: 0.2s;*/
-/*}*/
-
-/*.add-button:hover {*/
-/*    transition: all 0.2s ease-in-out;*/
-/*    box-shadow: 0 0 10px 4px var(--orange);*/
-/*}*/
 button {
     background-color: var(--orange);
     color: var(--black);
@@ -112,7 +96,7 @@ button:hover {
 
 
 /* MODAL */
-.modal {
+.modal, .modalTask {
     display: none;
     position: fixed;
     z-index: 1;
@@ -125,7 +109,7 @@ button:hover {
     background-color: rgba(0,0,0,0.4);
 }
 
-.modal-content {
+.modal-content, .modal-content-task {
     position: relative;
     
     background-color: var(--black);
@@ -239,6 +223,10 @@ button:hover {
     color: var(--orange);
     font-style: italic;
 }
+
+.this-span:hover {
+    cursor: pointer;
+}
 /* PROJECT */
 
 
@@ -266,7 +254,7 @@ td {
 }
 
 
-.remove-task {
+.delete-task-button {
     width: 100%;
     background-color: red;
     color: var(--white);
