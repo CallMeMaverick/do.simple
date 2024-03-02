@@ -1,9 +1,8 @@
-import project__init__ from "../../project_init/getObject"
-import addProject from "../../../../utils/addProject/addProject";
-import hideModal from "../../hideModal/hideModal";
-import clearInput from "../../clearInputs/clearInputs";
-import processProject from "../../processProject/processProject";
-import returnHome from "../../../../returnHome/returnHome";
+import task__init__ from "../task_init_/task_init_";
+import addTask from "../addTask/addTask";
+import hideTaskModal from "./hideTaskModal/hideTaskModal";
+import clearInput from "../../project/clearInputs/clearInputs";
+import deleteTask from "../deleteTasks/deleteTask";
 
 function createInputWithLabel(type, name, id, labelText, value = '') {
     const wrapper = document.createElement("div");
@@ -61,18 +60,16 @@ export default function createForm() {
     const modalForm = document.createElement("form");
 
     const titleInput = createInputWithLabel("text", "title", "title", "Title:");
-    const descriptionInput = createInputWithLabel("textarea", "description", "description", "Description:");
-    const dueDateInput = createInputWithLabel("date", "dueDate", "dueDate", "Due Date:");
+    const deadlineInput = createInputWithLabel("date", "deadline", "deadline", "Deadline:");
     const prioritySelect = createSelectWithLabel("priority", "priority", "Priority:", ["High", "Medium", "Low"]);
 
     modalForm.appendChild(titleInput);
-    modalForm.appendChild(descriptionInput);
-    modalForm.appendChild(dueDateInput);
+    modalForm.appendChild(deadlineInput);
     modalForm.appendChild(prioritySelect);
 
     const submitButton = document.createElement("button");
     submitButton.setAttribute("type", "submit");
-    submitButton.textContent = "Submit";
+    submitButton.textContent = "Add task";
 
     const submitButtonContainer = document.createElement("div");
     submitButtonContainer.classList.add("submit-button-container");
@@ -83,47 +80,24 @@ export default function createForm() {
     modalForm.addEventListener('submit', function(event) {
         event.preventDefault();
 
-        const thisForm = event.currentTarget;
+        const titleInput = document.getElementById('title');
+        const deadlineInput = document.getElementById('deadline');
+        const prioritySelect = document.getElementById('priority');
 
-        const title = thisForm.querySelector("#title").value;
-        const description = thisForm.querySelector("#description").value;
-        const dueDate = thisForm.querySelector("#dueDate").value;
-        const priority = thisForm.querySelector("#priority").value;
+        const titleValue = titleInput.value;
+        const deadlineValue = deadlineInput.value;
+        const priorityValue = prioritySelect.value;
 
-        const projectObject = new project__init__(title, description, dueDate, priority);
+        const task = task__init__(titleValue, deadlineValue, priorityValue);
 
-        addProject(projectObject)
+        addTask(task);
+        hideTaskModal();
 
-        saveProjectToLocalStorage(projectObject);
-
-        clearInput(thisForm.querySelector("#title"), thisForm.querySelector("#description"), thisForm.querySelector("#dueDate"), document.getElementById("priority"));
-
-        hideModal();
-
-        returnHome();
+        titleInput.value = "";
+        deadlineInput.value = "";
+        prioritySelect.value = "high";
     })
 
 
     return modalForm;
 }
-
-function saveProjectToLocalStorage(projectObject) {
-    const existingProjects = JSON.parse(localStorage.getItem('projects')) || [];
-    existingProjects.push(projectObject);
-    localStorage.setItem('projects', JSON.stringify(existingProjects));
-}
-
-export function loadProjects() {
-    const projects = JSON.parse(localStorage.getItem('projects')) || [];
-    projects.forEach(projectData => {
-        // If dueDate is stored as a string, convert it back to a Date object
-        if (projectData.dueDate) {
-            projectData.dueDate = new Date(projectData.dueDate);
-        }
-        addProject(projectData);
-    });
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    loadProjects();
-});

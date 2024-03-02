@@ -1,4 +1,5 @@
 import definePriority from "../../objects/project/setPriority/setPriority";
+import processProject from "../../objects/project/processProject/processProject";
 
 export default function addProject(projectObject) {
     // Select the content div or create a new one if it doesn't exist
@@ -14,26 +15,28 @@ export default function addProject(projectObject) {
 
     const projectTitle = document.createElement("h3");
     projectTitle.textContent = projectObject.title;
+    projectTitle.classList.add("title");
     console.log(projectObject.title);
 
     const projectDescription = document.createElement("p");
-    projectDescription.innerHTML = `<span class="this-span">Description:</span> ${projectObject.description}`;
+    projectDescription.innerHTML = `<span class="desc">Description:</span> ${projectObject.description}`;
 
     const projectDueDate = document.createElement("p");
-    projectDueDate.innerHTML = `<span class="this-span">Due Date:</span> ${projectObject.dueDate.toLocaleDateString()}`;
+    projectDueDate.innerHTML = `<span class="duedate">Due Date:</span> ${projectObject.dueDate.toLocaleDateString()}`;
 
     const projectPriority = document.createElement("p");
-    projectPriority.innerHTML = `<span class="this-span">Priority:</span> ${projectObject.priority}`;
+    projectPriority.innerHTML = `<span class="prior">Priority:</span> ${projectObject.priority}`;
 
     projectContainer = definePriority(projectContainer, projectObject.priority);
 
-    // Append project details to the project container
     projectContainer.appendChild(projectTitle);
     projectContainer.appendChild(projectDescription);
     projectContainer.appendChild(projectDueDate);
     projectContainer.appendChild(projectPriority);
 
-    // Append the project container to the content div
     contentDiv.appendChild(projectContainer);
+
+    processProject();
+
     return contentDiv;
 }
