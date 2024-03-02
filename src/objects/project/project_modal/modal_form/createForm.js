@@ -2,6 +2,7 @@ import project__init__ from "../../project_init/getObject"
 import addProject from "../../../../utils/addProject/addProject";
 import hideModal from "../../hideModal/hideModal";
 import clearInput from "../../clearInputs/clearInputs";
+import triggerTask from "../../../task/processTask";
 
 function createInputWithLabel(type, name, id, labelText, value = '') {
     const wrapper = document.createElement("div");
@@ -92,6 +93,8 @@ export default function createForm() {
 
         clearInput(thisForm.querySelector("#title"), thisForm.querySelector("#description"), thisForm.querySelector("#dueDate"), document.getElementById("priority"));
         hideModal();
+
+        triggerTask();
     })
 
     return modalForm;
