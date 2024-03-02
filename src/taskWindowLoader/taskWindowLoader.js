@@ -1,6 +1,8 @@
 import addTaskButton from "../objects/task/addTaskButton/addTaskButton";
 import addTable from "../objects/task/addTable/addTable";
 import createModuleTask from "../objects/task/moduleTask/createModuleTask";
+import returnHome from "../returnHome/returnHome";
+import Loader from "../mainLoader/loader";
 
 export default function taskWindowLoader(project) {
     document.body.innerHTML = "";
@@ -17,6 +19,10 @@ export default function taskWindowLoader(project) {
     const returnButton = document.createElement("button");
     returnButton.classList.add("return-button");
     returnButton.textContent = "←";
+
+    returnButton.addEventListener("click", () => {
+        returnHome();
+    })
 
     returnButtonContainer.appendChild(returnButton);
 

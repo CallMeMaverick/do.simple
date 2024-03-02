@@ -1,9 +1,5 @@
 import createForm from "./creatFormTaskModule";
-import hideModal from "../../project/hideModal/hideModal";
 import hideTaskModal from "./hideTaskModal/hideTaskModal";
-import task__init__ from "../task_init_/task_init_";
-import addTask from "../addTask/addTask";
-import deleteTask from "../deleteTasks/deleteTask";
 
 export default function createModuleTask() {
     const addTaskButton = document.querySelector(".add-task-button");

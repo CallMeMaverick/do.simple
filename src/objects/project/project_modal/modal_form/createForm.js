@@ -3,6 +3,7 @@ import addProject from "../../../../utils/addProject/addProject";
 import hideModal from "../../hideModal/hideModal";
 import clearInput from "../../clearInputs/clearInputs";
 import processProject from "../../processProject/processProject";
+import returnHome from "../../../../returnHome/returnHome";
 
 function createInputWithLabel(type, name, id, labelText, value = '') {
     const wrapper = document.createElement("div");
@@ -90,15 +91,39 @@ export default function createForm() {
         const priority = thisForm.querySelector("#priority").value;
 
         const projectObject = new project__init__(title, description, dueDate, priority);
-        document.body.appendChild(addProject(projectObject));
+
+        addProject(projectObject)
+
+        saveProjectToLocalStorage(projectObject);
 
         clearInput(thisForm.querySelector("#title"), thisForm.querySelector("#description"), thisForm.querySelector("#dueDate"), document.getElementById("priority"));
+
         hideModal();
 
-        processProject();
+        returnHome();
     })
 
 
     return modalForm;
 }
 
+function saveProjectToLocalStorage(projectObject) {
+    const existingProjects = JSON.parse(localStorage.getItem('projects')) || [];
+    existingProjects.push(projectObject);
+    localStorage.setItem('projects', JSON.stringify(existingProjects));
+}
+
+export function loadProjects() {
+    const projects = JSON.parse(localStorage.getItem('projects')) || [];
+    projects.forEach(projectData => {
+        // If dueDate is stored as a string, convert it back to a Date object
+        if (projectData.dueDate) {
+            projectData.dueDate = new Date(projectData.dueDate);
+        }
+        addProject(projectData);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    loadProjects();
+});

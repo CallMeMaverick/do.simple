@@ -1,4 +1,5 @@
 import definePriority from "../../objects/project/setPriority/setPriority";
+import processProject from "../../objects/project/processProject/processProject";
 
 export default function addProject(projectObject) {
     // Select the content div or create a new one if it doesn't exist
@@ -28,13 +29,14 @@ export default function addProject(projectObject) {
 
     projectContainer = definePriority(projectContainer, projectObject.priority);
 
-    // Append project details to the project container
     projectContainer.appendChild(projectTitle);
     projectContainer.appendChild(projectDescription);
     projectContainer.appendChild(projectDueDate);
     projectContainer.appendChild(projectPriority);
 
-    // Append the project container to the content div
     contentDiv.appendChild(projectContainer);
+
+    processProject();
+
     return contentDiv;
 }
